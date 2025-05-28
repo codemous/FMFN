@@ -6,7 +6,7 @@ This repository provides the **PyTorch implementation** of the paper:
 - We **do not truncate audio and visual sequences to length 50**, unlike the original paper.
 - Instead of applying different learning rate decay strategies for BERT and other parameters, we adopt the **learning rate schedule strategy from the LNLN  repository**.
 
-> We extend the previous frameworks to support both **complete modality inputs** and **incomplete modality inputs** settings, enabling robust evaluation under missing modality scenarios.
+> We extend the previous FMFN framework to support both **complete modality inputs** and **incomplete modality inputs** settings, enabling robust evaluation under missing modality scenarios.
 
 
 You can download the processed datasets from the **[MMSA](https://github.com/thuiar/MMSA)** repository.
