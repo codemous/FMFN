@@ -2,7 +2,7 @@ This repository provides the **PyTorch implementation** of the paper:
 **Learning Fine-Grained Representation with Token-Level Alignment for Multimodal Sentiment Analysis**
 
 
-> This implementation is reorganized based on the official code repositories of **[ALMT](https://github.com/AIM3-RUC/ALMT)** and **[LNLN](https://github.com/AIM3-RUC/LNLN)**. 
+> This implementation is reorganized based on the official code repositories of **[ALMT](https://github.com/Haoyu-ha/ALMT)** and **[LNLN](https://github.com/Haoyu-ha/LNLN)**. 
 - We **do not truncate audio and visual sequences to length 50**, unlike the original paper.
 - Instead of applying different learning rate decay strategies for BERT and other parameters, we adopt the **learning rate schedule strategy from the LNLN  repository**.
 
