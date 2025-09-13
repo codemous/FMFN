@@ -1,0 +1,49 @@
+base:
+  seed: 1234
+  lr: 0.0001
+  weight_decay: 0.0001
+  batch_size: 64
+  n_epochs: 100
+  num_workers: 8
+  alpha: 0.01 #
+  train_mode: regression # only support regression now
+  data_missing: false
+  missing_rate_eval_test: 0.5   # used for evaluation and testing
+  do_validation: true
+
+dataset:
+  datasetName: sims
+  dataPath: /data/SIMS/Processed/unaligned_39.pkl
+
+
+model:
+
+  com_dim: &com_dim 128
+  dropout: &dropout 0.2
+  neck_size: &neck_size 8
+  feature_extractor:
+    bert_pretrained: 'bert-base-chinese'
+    input_dim: [768, 33, 709 ] # language, audio, video
+
+  hle: #HybridLearningEncoder
+    input_length: [ 39, 400, 55 ] # language, audio, video
+
+    neck_size: *neck_size
+    hidden_dim: *com_dim # language, video, audio
+    depth: 2
+    attn_heads: 8
+    dropout: *dropout
+
+  hld: #HyperLearningDecoder
+    hidden_dim: *com_dim # language, video, audio
+    depth: 2
+    attn_heads: 8
+    dropout: *dropout
+
+  ucl: #UniContrastiveLoss
+    hidden_dim: *com_dim # language, video, audio
+    neck_size: *neck_size
+
+  regression: #task learning
+    input_dim: *com_dim
+    out_dim: 1
